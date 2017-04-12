@@ -1,0 +1,6 @@
+.navbar {
+  margin-bottom: 2em; }
+
+#mainnav {
+  /*height: 50px;*/
+  margin-left: calc(100vw - 250px); }
