@@ -13,13 +13,13 @@ export default function Navbar(props) {
             <div className="collapse navbar-collapse" id="mainnav">
                 <ul className="nav navbar-nav">
                     <li className="active">
-                        <a href="/">Home</a>
+                        <Link to="/">Home</Link>
                     </li>
                     <li>
-                        <a href="/campuses">Campuses</a>
+                        <Link to="/campuses">Campuses</Link>
                     </li>
                     <li>
-                        <a href="/students">Students</a>
+                        <Link to="/students">Students</Link>
                     </li>
                 </ul>
             </div>

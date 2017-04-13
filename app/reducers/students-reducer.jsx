@@ -1,5 +1,3 @@
-import {convertCampuses} from '../utils';
-
 const initialState = {
   selected: {},
   list: []
@@ -11,8 +9,8 @@ export default function(state = initialState, action) {
 
   switch(action.type) {
 
-    case 'RECEIVE_CAMPUSES':
-      newState.list = convertCampuses(action.campuses);
+    case 'RECEIVE_STUDENTS':
+      newState.list = action.students;
       
       break;
 

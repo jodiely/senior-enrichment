@@ -1,10 +1,10 @@
-import Student from '../components/Student';
+import Student from '../components/Students';
 import { connect } from 'react-redux';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   return {
-//     selectedArtist: state.artists.selected,
-//     children: ownProps.children
+    selectedStudent: state.students.selected,
+    students: state.students.list
   };
 };
 

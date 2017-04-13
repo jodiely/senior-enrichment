@@ -8,18 +8,24 @@ import App from './components/App'
 import Campuses from './components/Campuses'
 import Students from './components/Students'
 
-import { receiveCampuses} from './action-creators/campuses';
+import CampusesContainer from './containers/CampusesContainer'
+import StudentsContainer from './containers/StudentsContainer'
+
+import { receiveCampuses } from './action-creators/campuses';
+import { receiveStudents } from './action-creators/students';
 
 const onAppEnter = () => {
 
   const pCampuses = axios.get('/api/campuses');
+  const pStudents = axios.get('/api/students');
 
 
   return Promise
-    .all([pCampuses])
+    .all([pCampuses, pStudents])
     .then(responses => responses.map(r => r.data))
-    .then(([campuses]) => {
+    .then(([campuses, students]) => {
       store.dispatch(receiveCampuses(campuses));
+      store.dispatch(receiveStudents(students));
       
     });
 };
@@ -29,8 +35,8 @@ export default function AppRoot() {
         <Provider store={store}>
             <Router history={hashHistory} >
                 <Route path='/' component={App} onEnter={onAppEnter} >
-                    <Route path='/campuses' component={Campuses}/>
-                {/*<Route path='/students' component={Students}/>*/}
+                    <Route path='/campuses' component={CampusesContainer}/>
+                    <Route path='/students' component={StudentsContainer}/>
                 <IndexRedirect to="/campuses"/>
                 </Route>
             </ Router>
